@@ -1,3 +1,4 @@
 #ignoring lib and assets directories
 assets/
 lib/
+*.out
