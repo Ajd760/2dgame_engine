@@ -1,4 +1,8 @@
-// This is the constants file
+// This is the constants header file
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
-unsigned int WINDOW_WIDTH = 1600;
-unsigned int WINDOW_HEIGHT = 1200;
+const unsigned int WINDOW_WIDTH = 1600;
+const unsigned int WINDOW_HEIGHT = 1200;
+
+#endif
