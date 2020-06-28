@@ -12,8 +12,11 @@ int main(int argc, char* args[])
     while(game->isRunning())
     {
         //run game
-        
+        game->processInput();
+        game->update();
+        game->render();    
     }
 
+    game->cleanup();
     return 0;
 }

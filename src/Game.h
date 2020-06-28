@@ -17,6 +17,9 @@ class Game
         void render();
         void cleanup(); // On game close
 
+
+        
+
     private:
         unsigned int window_width;
         unsigned int window_height;

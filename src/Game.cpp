@@ -40,22 +40,70 @@ bool Game::isRunning() const
     return bisRunning;
 }
 
+//temp stuff /////////////////////////////////////////
+float projectilePosX = 0.0f;
+float projectilePosY = 0.0f;
+const float projectileVelX = 0.3f;
+const float projectileVelY = 0.3f;
+//////////////////////////////////////////////////////
+
+
 void Game::processInput()
 {
-
+    SDL_Event event;
+    if(SDL_PollEvent(&event))
+    {
+        switch(event.type)
+        {
+            case SDL_QUIT: 
+            {   
+                bisRunning = false;
+                break;
+            }
+            case SDL_KEYDOWN:
+            {
+                if (event.key.keysym.sym == SDLK_ESCAPE)
+                {
+                    bisRunning = false;
+                }
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+    }
 }
 
 void Game::update()
 {
-
+    projectilePosX += projectileVelX;
+    projectilePosY += projectileVelY;
 }
 
 void Game::render()
 {
+    SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
+    SDL_RenderClear(renderer); //clear the current rendering target with the clear color
+    
+    SDL_Rect projectile 
+    {
+        (int)projectilePosX, 
+        (int)projectilePosY,
+        10, 
+        10
+    };
 
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderFillRect(renderer, &projectile);
+
+    SDL_RenderPresent(renderer); // swap buffers
 }
 
 void Game::cleanup()
 {
-
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 }
