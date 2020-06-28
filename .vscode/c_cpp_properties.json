@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "name": "MinGW32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "G:/MinGW/include/**",
+                "G:/libsdl-MinGW-32/SDL2/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.15063.0",
+            "compilerPath": "G:/MinGW/bin/g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "gcc-x86",
+            "compilerArgs": [
+                "-w",
+                "-Wfatal-errors",
+                "-m32",
+                "-static-libstdc++",
+                "-I.\\lib\\lua",
+                "-L.\\lib\\lua",
+                "-llua53",
+                "-lmingw32",
+                "-lSDL2main",
+                "-lSDL2_image",
+                "-lSDL2_ttf",
+                "-lSDL2_mixer",
+                "-lSDL2"
+            ]
+        }
+    ],
+    "version": 4
+}

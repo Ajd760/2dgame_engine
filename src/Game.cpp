@@ -1,6 +1,6 @@
 #include <iostream>
-#include "./Constants.h"
-#include "./Game.h"
+#include "Constants.h"
+#include "Game.h"
 
 Game::Game()
 {
@@ -18,7 +18,7 @@ void Game::init(unsigned int winWidth, unsigned int winHeight)
         return;
     }
 
-    window = SDL_CreateWindow("2dGame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_BORDERLESS);
+    window = SDL_CreateWindow("2dGame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, window_width, window_height, SDL_WINDOW_SHOWN);
     if(!window)
     {
         std::cerr << "Error: SDL_CreateWindow Failed" << std::endl;
