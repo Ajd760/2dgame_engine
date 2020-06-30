@@ -5,6 +5,8 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
+#include ".\Time.h"
+
 class Game
 {
     public:
@@ -17,7 +19,8 @@ class Game
         void render();
         void cleanup(); // On game close
 
-
+        Time* timer;
+        int lastFrameTicks;
         
 
     private:

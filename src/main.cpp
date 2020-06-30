@@ -9,12 +9,14 @@ int main(int argc, char* args[])
 
     std::cout << "This Visual Studio thing is dumb" << std::endl;
 
+    SDL_GetTicks();
+
     while(game->isRunning())
     {
         //run game
         game->processInput();
         game->update();
-        game->render();    
+        game->render();
     }
 
     game->cleanup();

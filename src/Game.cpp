@@ -1,10 +1,11 @@
 #include <iostream>
-#include "Constants.h"
-#include "Game.h"
+#include ".\Constants.h"
+#include ".\Game.h"
 
 Game::Game()
 {
     bisRunning = false;
+    timer = new Time();
 }
 
 void Game::init(unsigned int winWidth, unsigned int winHeight)
@@ -43,8 +44,8 @@ bool Game::isRunning() const
 //temp stuff /////////////////////////////////////////
 float projectilePosX = 0.0f;
 float projectilePosY = 0.0f;
-const float projectileVelX = 0.3f;
-const float projectileVelY = 0.3f;
+const float projectileVelX = 15.0f;
+const float projectileVelY = 20.0f;
 //////////////////////////////////////////////////////
 
 
@@ -78,8 +79,17 @@ void Game::processInput()
 
 void Game::update()
 {
-    projectilePosX += projectileVelX;
-    projectilePosY += projectileVelY;
+    //Wait until target frame time has elapsed since last frame, if necessary
+    timer->calcAndExecFrameDelay();
+
+    //Timer-update
+    timer->updateDeltaTime();
+    timer->clampDeltaTime();
+    timer->updateLastFrameTicks();
+    timer->calcAndExecFrameDelay();
+
+    projectilePosX += projectileVelX * timer->getDeltaTime();
+    projectilePosY += projectileVelY * timer->getDeltaTime();
 }
 
 void Game::render()
