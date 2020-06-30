@@ -7,9 +7,7 @@ Time::Time()
 }
 
 Time::~Time()
-{
-
-}
+{}
 
 float Time::getDeltaTime() const
 {

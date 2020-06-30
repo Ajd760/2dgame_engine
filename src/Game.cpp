@@ -86,7 +86,6 @@ void Game::update()
     timer->updateDeltaTime();
     timer->clampDeltaTime();
     timer->updateLastFrameTicks();
-    timer->calcAndExecFrameDelay();
 
     projectilePosX += projectileVelX * timer->getDeltaTime();
     projectilePosY += projectileVelY * timer->getDeltaTime();
@@ -113,6 +112,8 @@ void Game::render()
 
 void Game::cleanup()
 {
+    timer = NULL;
+
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
