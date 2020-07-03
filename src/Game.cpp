@@ -1,6 +1,10 @@
 #include <iostream>
 #include ".\Constants.h"
 #include ".\Game.h"
+#include "..\lib\glm\glm.hpp"
+
+EntityManager manager;
+SDL_Renderer* Game::renderer;
 
 Game::Game()
 {
@@ -8,6 +12,7 @@ Game::Game()
     timer = new Time();
 }
 
+// Initialize all SDL subsystems, get window, renderer etc
 void Game::init(unsigned int winWidth, unsigned int winHeight)
 {
     window_width = winWidth;
@@ -40,14 +45,6 @@ bool Game::isRunning() const
 {
     return bisRunning;
 }
-
-//temp stuff /////////////////////////////////////////
-float projectilePosX = 0.0f;
-float projectilePosY = 0.0f;
-const float projectileVelX = 15.0f;
-const float projectileVelY = 20.0f;
-//////////////////////////////////////////////////////
-
 
 void Game::processInput()
 {
@@ -87,27 +84,22 @@ void Game::update()
     timer->clampDeltaTime();
     timer->updateLastFrameTicks();
 
-    projectilePosX += projectileVelX * timer->getDeltaTime();
-    projectilePosY += projectileVelY * timer->getDeltaTime();
+    //TODO: call manager.update to update all entities/components
 }
 
 void Game::render()
 {
     SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
     SDL_RenderClear(renderer); //clear the current rendering target with the clear color
-    
-    SDL_Rect projectile 
-    {
-        (int)projectilePosX, 
-        (int)projectilePosY,
-        10, 
-        10
-    };
 
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(renderer, &projectile);
+    //TODO: call manager.render to render all entities/components
 
     SDL_RenderPresent(renderer); // swap buffers
+}
+
+void Game::loadLevel(int levelNum)
+{
+
 }
 
 void Game::cleanup()
