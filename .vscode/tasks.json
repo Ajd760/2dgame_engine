@@ -4,7 +4,7 @@
       {
         "type": "shell",
         "label": "g++.exe build src folder",
-        "command": "G:\\MinGW\\bin\\g++.exe",
+        "command": "M:\\MinGW\\bin\\g++.exe",
         "args": [
             "-g", "${workspaceFolder}\\src\\*.cpp", 
             "-o", "${workspaceFolder}\\game.exe",
@@ -23,7 +23,7 @@
             "-lSDL2"
         ],
         "options": {
-          "cwd": "G:\\MinGW\\bin"
+          "cwd": "M:\\MinGW\\bin"
         },
         "problemMatcher": ["$gcc"],
         "group": {
