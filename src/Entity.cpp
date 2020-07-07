@@ -1,5 +1,6 @@
 #include ".\Entity.h"
 #include ".\EntityManager.h"
+#include <iostream>
 
 Entity::Entity(EntityManager& manager) : manager(manager)
 {
@@ -36,4 +37,20 @@ void Entity::destroy()
 bool Entity::getIsActive() const
 {
     return bisActive;
+}
+
+int Entity::getNumComponents() const
+{
+    return components.size();
+}
+
+Component* Entity::getComponentByIndex(int index) const
+{
+    if(index > components.size() || index < 0)
+    {
+        std::cerr << "Component index out of bounds" << std::endl;
+        return nullptr;
+    }
+
+    return components[index];
 }

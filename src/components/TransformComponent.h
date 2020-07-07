@@ -13,12 +13,15 @@ class TransformComponent : public Component
         void init() override;
         void update(float deltaTime) override;
         void render() override;
+        std::string getType() const override;
 
         glm::vec2 position;
         glm::vec2 velocity;
         int width;
         int height;
         int scale;
+
+        const std::string componentType = "TransformComponent";
 };
 
 

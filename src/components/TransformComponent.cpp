@@ -34,3 +34,8 @@ void TransformComponent::render()
     SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
     SDL_RenderFillRect(Game::renderer, &transformRect);
 }
+
+std::string TransformComponent::getType() const
+{
+    return componentType;
+}

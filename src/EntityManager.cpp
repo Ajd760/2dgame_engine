@@ -1,4 +1,5 @@
 #include ".\EntityManager.h"
+#include <iostream>
 
 void EntityManager::update(float deltaTime)
 {
@@ -42,5 +43,17 @@ void EntityManager::destroyEverything()
     for(int i = 0; i < entities.size(); i++)
     {
         entities[i]->destroy();
+    }
+}
+
+void EntityManager::listEntities() const
+{
+    for(int i = 0; i < entities.size(); i++)
+    {
+        std::cout << "Entity Name: " << entities[i]->name << std::endl;
+        for(int j = 0; j < entities[i]->getNumComponents(); j++)
+        {
+            std::cout << "\tComponent<" << entities[i]->getComponentByIndex(j)->getType() << ">" << std::endl;
+        }
     }
 }

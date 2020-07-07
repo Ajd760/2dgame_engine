@@ -16,6 +16,8 @@ class Entity
         void render();
         void destroy();
         bool getIsActive() const;
+        int getNumComponents() const;
+        Component* getComponentByIndex(int index) const;
 
         std::string name;
 

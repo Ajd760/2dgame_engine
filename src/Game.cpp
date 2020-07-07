@@ -53,8 +53,20 @@ void Game::init(unsigned int winWidth, unsigned int winHeight)
 void Game::loadLevel(int levelNum)
 {
     // temp
-    Entity& newEntity(manager.addEntity("projectile"));
-    newEntity.addComponent<TransformComponent>(0, 0, 20, 20, 24, 24, 1);
+    Entity& firstEntity(manager.addEntity("leftProjectile"));
+    firstEntity.addComponent<TransformComponent>(0, 0, 20, 20, 24, 24, 1);
+
+    Entity& secondEntity(manager.addEntity("rightProjectile"));
+    secondEntity.addComponent<TransformComponent>((WINDOW_WIDTH - 24), 0, -20, 20, 24, 24, 1);
+
+    Entity& thirdEntity(manager.addEntity("rightProjectile"));
+    thirdEntity.addComponent<TransformComponent>(0, (WINDOW_HEIGHT - 24), 20, -20, 24, 24, 1);
+
+    Entity& fourthEntity(manager.addEntity("rightProjectile"));
+    fourthEntity.addComponent<TransformComponent>((WINDOW_WIDTH - 24), (WINDOW_HEIGHT - 24), -20, -20, 24, 24, 1);
+
+    manager.listEntities();
+
 }
 
 bool Game::isRunning() const

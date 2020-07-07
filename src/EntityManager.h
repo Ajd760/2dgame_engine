@@ -14,6 +14,7 @@ class EntityManager
         std::vector<Entity*> getEntities() const;
         unsigned int getEntityCount() const;
         void destroyEverything();
+        void listEntities() const;
 
     protected:
         std::vector<Entity*> entities;

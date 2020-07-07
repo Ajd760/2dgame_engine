@@ -12,6 +12,7 @@ class Component
         virtual void init() {}
         virtual void update(float deltaTime) {}
         virtual void render() {}
+        virtual std::string getType() const {}
 };
 
 #endif
