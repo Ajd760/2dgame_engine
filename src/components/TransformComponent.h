@@ -19,10 +19,6 @@ class TransformComponent : public Component
         int width;
         int height;
         int scale;
-
-
-    protected:
-
 };
 
 

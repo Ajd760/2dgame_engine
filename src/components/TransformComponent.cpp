@@ -1,4 +1,5 @@
 #include ".\TransformComponent.h"
+#include <iostream>
 
 TransformComponent::TransformComponent(int posX, int posY, int velX, int velY, int w, int h, int s)
 {
@@ -16,12 +17,13 @@ void TransformComponent::init()
 
 void TransformComponent::update(float deltaTime)
 {
-    position.x = velocity.x * deltaTime;
-    position.y = velocity.y * deltaTime;
+    position.x += velocity.x * deltaTime;
+    position.y += velocity.y * deltaTime;
 }
 
 void TransformComponent::render()
 {
+    
     SDL_Rect transformRect = 
     {
         (int) position.x,

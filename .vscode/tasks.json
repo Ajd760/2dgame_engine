@@ -6,7 +6,7 @@
         "label": "g++.exe build src folder",
         "command": "M:\\MinGW\\bin\\g++.exe",
         "args": [
-            "-g", "${workspaceFolder}\\src\\*.cpp", 
+            "-g", "${workspaceFolder}\\src\\*.cpp", "${workspaceFolder}\\src\\components\\*.cpp",
             "-o", "${workspaceFolder}\\game.exe",
             "-w",
             "-Wfatal-errors",

@@ -1,5 +1,6 @@
 #include <iostream>
 #include ".\Constants.h"
+#include ".\components\TransformComponent.h"
 #include ".\Game.h"
 #include "..\lib\glm\glm.hpp"
 
@@ -10,6 +11,11 @@ Game::Game()
 {
     bisRunning = false;
     timer = new Time();
+}
+
+Game::~Game()
+{
+
 }
 
 // Initialize all SDL subsystems, get window, renderer etc
@@ -38,7 +44,17 @@ void Game::init(unsigned int winWidth, unsigned int winHeight)
         return;
     }
 
+    // temp
+    loadLevel(0);
+
     bisRunning = true;
+}
+
+void Game::loadLevel(int levelNum)
+{
+    // temp
+    Entity& newEntity(manager.addEntity("projectile"));
+    newEntity.addComponent<TransformComponent>(0, 0, 20, 20, 24, 24, 1);
 }
 
 bool Game::isRunning() const
@@ -84,7 +100,7 @@ void Game::update()
     timer->clampDeltaTime();
     timer->updateLastFrameTicks();
 
-    //TODO: call manager.update to update all entities/components
+    manager.update(timer->getDeltaTime());
 }
 
 void Game::render()
@@ -92,14 +108,15 @@ void Game::render()
     SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
     SDL_RenderClear(renderer); //clear the current rendering target with the clear color
 
-    //TODO: call manager.render to render all entities/components
+    if(manager.isEmpty())
+    {
+        std::cerr << "Nothing in Entity Manager" << std::endl;
+        return;
+    }
+
+    manager.render();
 
     SDL_RenderPresent(renderer); // swap buffers
-}
-
-void Game::loadLevel(int levelNum)
-{
-
 }
 
 void Game::cleanup()

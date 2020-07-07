@@ -3,18 +3,15 @@
 
 class Entity;
 
+// This is fully an interface class - all functions implemented by children
 class Component 
 {
     public:
         Entity* owner;
-        Component();
-        virtual ~Component();
-        virtual void init();
-        virtual void update(float deltaTime);
-        virtual void render();
-
-    protected:
-
+        virtual ~Component() {}
+        virtual void init() {}
+        virtual void update(float deltaTime) {}
+        virtual void render() {}
 };
 
 #endif
