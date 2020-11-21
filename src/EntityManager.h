@@ -4,8 +4,7 @@
 #include ".\Entity.h"
 #include ".\Component.h"
 
-class EntityManager
-{
+class EntityManager {
     public:
         void update(float deltaTime);
         void render();

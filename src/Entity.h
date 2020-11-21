@@ -7,8 +7,7 @@
 
 class EntityManager;
 
-class Entity
-{
+class Entity {
     public:
         Entity(EntityManager& manager);
         Entity(EntityManager& manager, std::string name);
@@ -22,8 +21,7 @@ class Entity
         std::string name;
 
         template <typename T, typename... TArgs>
-        T& addComponent(TArgs&&... args)
-        {
+        T& addComponent(TArgs&&... args) {
             T* newComponent(new T(std::forward<TArgs>(args)...));
             newComponent->owner = this;
             components.emplace_back(newComponent);

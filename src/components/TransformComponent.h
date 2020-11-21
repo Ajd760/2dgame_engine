@@ -6,8 +6,7 @@
 #include "..\..\lib\glm\glm.hpp"
 #include <SDL2\SDL.h>
 
-class TransformComponent : public Component
-{
+class TransformComponent : public Component {
     public:
         TransformComponent(int posX, int posY, int velX, int velY, int w, int h, int s);
         void init() override;

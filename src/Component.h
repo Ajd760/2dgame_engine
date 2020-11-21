@@ -4,8 +4,7 @@
 class Entity;
 
 // This is fully an interface class - all functions implemented by children
-class Component 
-{
+class Component {
     public:
         Entity* owner;
         virtual ~Component() {}

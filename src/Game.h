@@ -8,8 +8,7 @@
 #include ".\Time.h"
 #include ".\EntityManager.h"
 
-class Game
-{
+class Game {
     public:
         Game();
         ~Game();

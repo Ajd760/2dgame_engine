@@ -1,8 +1,7 @@
 #include ".\TransformComponent.h"
 #include <iostream>
 
-TransformComponent::TransformComponent(int posX, int posY, int velX, int velY, int w, int h, int s)
-{
+TransformComponent::TransformComponent(int posX, int posY, int velX, int velY, int w, int h, int s) {
     position = glm::vec2(posX, posY);
     velocity = glm::vec2(velX, velY);
     width = w;
@@ -10,22 +9,16 @@ TransformComponent::TransformComponent(int posX, int posY, int velX, int velY, i
     scale = s;
 }
 
-void TransformComponent::init()
-{
+void TransformComponent::init() { }
 
-}
-
-void TransformComponent::update(float deltaTime)
-{
+void TransformComponent::update(float deltaTime) {
     position.x += velocity.x * deltaTime;
     position.y += velocity.y * deltaTime;
 }
 
-void TransformComponent::render()
-{
+void TransformComponent::render() {
     
-    SDL_Rect transformRect = 
-    {
+    SDL_Rect transformRect = {
         (int) position.x,
         (int) position.y,
         width,
@@ -35,7 +28,6 @@ void TransformComponent::render()
     SDL_RenderFillRect(Game::renderer, &transformRect);
 }
 
-std::string TransformComponent::getType() const
-{
+std::string TransformComponent::getType() const {
     return componentType;
 }

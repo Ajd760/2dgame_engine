@@ -3,8 +3,7 @@
 
 #include <SDL2/SDL.h>
 
-class Time 
-{
+class Time {
     public:
         Time();
         ~Time();
