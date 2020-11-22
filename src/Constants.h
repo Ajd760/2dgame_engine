@@ -7,7 +7,7 @@ const unsigned int WINDOW_HEIGHT = 720;
 
 // Desired FPS
 const unsigned int FPS = 60;
-// Target frame time in ms = 1 second / target FPS
+// Target frame time in ms = 1 second (in ms) / target FPS
 const unsigned int TARGET_FRAME_TIME = 1000 / FPS;
 
 #endif

@@ -8,10 +8,10 @@ class Component {
     public:
         Entity* owner;
         virtual ~Component() {}
-        virtual void init() {}
-        virtual void update(float deltaTime) {}
-        virtual void render() {}
-        virtual std::string getType() const {}
+        virtual void Init() {}
+        virtual void Update(float deltaTime) {}
+        virtual void Render() {}
+        virtual std::string GetType() const {}
 };
 
 #endif

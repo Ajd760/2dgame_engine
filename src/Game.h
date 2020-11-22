@@ -12,13 +12,13 @@ class Game {
     public:
         Game();
         ~Game();
-        void init(unsigned int winWidth, unsigned int winHeight);
-        bool isRunning() const;
-        void processInput();
-        void update();
-        void render();
-        void loadLevel(int levelNum);
-        void cleanup(); // On game close
+        void Init(unsigned int winWidth, unsigned int winHeight);
+        bool IsRunning() const;
+        void ProcessInput();
+        void Update();
+        void Render();
+        void LoadLevel(int levelNum);
+        void Cleanup(); // On game close
 
         Time* timer;
         int lastFrameTicks;
@@ -29,8 +29,6 @@ class Game {
         unsigned int window_height;
         bool bisRunning;
         SDL_Window* window;
-        
-
 };
 
 #endif

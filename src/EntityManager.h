@@ -6,14 +6,14 @@
 
 class EntityManager {
     public:
-        void update(float deltaTime);
-        void render();
-        bool isEmpty() const;
-        Entity& addEntity(std::string entityName);
-        std::vector<Entity*> getEntities() const;
-        unsigned int getEntityCount() const;
-        void destroyEverything();
-        void listEntities() const;
+        void Update(float deltaTime);
+        void Render();
+        bool IsEmpty() const;
+        Entity& AddEntity(std::string entityName);
+        std::vector<Entity*> GetEntities() const;
+        unsigned int GetEntityCount() const;
+        void DestroyEverything();
+        void ListEntities() const;
 
     protected:
         std::vector<Entity*> entities;

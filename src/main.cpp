@@ -4,19 +4,19 @@
 
 int main(int argc, char* args[]) {
     Game* game = new Game();
-    game->init(WINDOW_WIDTH, WINDOW_HEIGHT);
+    game->Init(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-    std::cout << "This Visual Studio thing is so COOL (s1k3)" << std::endl;
+    std::cout << "S7yl3-ch3ck" << std::endl;
 
     SDL_GetTicks();
 
-    while(game->isRunning()) {
+    while(game->IsRunning()) {
         //run game
-        game->processInput();
-        game->update();
-        game->render();
+        game->ProcessInput();
+        game->Update();
+        game->Render();
     }
 
-    game->cleanup();
+    game->Cleanup();
     return 0;
 }

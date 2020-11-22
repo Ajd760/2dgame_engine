@@ -7,12 +7,12 @@ class Time {
     public:
         Time();
         ~Time();
-        float getDeltaTime() const;
-        int getLastFrameTicks() const;
-        void updateDeltaTime();
-        void clampDeltaTime();
-        void updateLastFrameTicks();
-        void calcAndExecFrameDelay();
+        float GetDeltaTime() const;
+        int GetLastFrameTicks() const;
+        void UpdateDeltaTime();
+        void ClampDeltaTime();
+        void UpdateLastFrameTicks();
+        void CalcAndExecFrameDelay();
 
     private:
         int lastFrameTicks;

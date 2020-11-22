@@ -9,15 +9,15 @@ TransformComponent::TransformComponent(int posX, int posY, int velX, int velY, i
     scale = s;
 }
 
-void TransformComponent::init() { }
+void TransformComponent::Init() { }
 
-void TransformComponent::update(float deltaTime) {
+void TransformComponent::Update(float deltaTime) {
     position.x += velocity.x * deltaTime;
     position.y += velocity.y * deltaTime;
 }
 
-void TransformComponent::render() {
-    
+// This is temp to show tranform components on screen
+void TransformComponent::Render() {
     SDL_Rect transformRect = {
         (int) position.x,
         (int) position.y,
@@ -28,6 +28,6 @@ void TransformComponent::render() {
     SDL_RenderFillRect(Game::renderer, &transformRect);
 }
 
-std::string TransformComponent::getType() const {
+std::string TransformComponent::GetType() const {
     return componentType;
 }

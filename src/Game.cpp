@@ -17,7 +17,7 @@ Game::~Game() {
 }
 
 // Initialize all SDL subsystems, get window, renderer etc
-void Game::init(unsigned int winWidth, unsigned int winHeight) {
+void Game::Init(unsigned int winWidth, unsigned int winHeight) {
     window_width = winWidth;
     window_height = winHeight;
     
@@ -39,34 +39,34 @@ void Game::init(unsigned int winWidth, unsigned int winHeight) {
     }
 
     // temp
-    loadLevel(0);
+    LoadLevel(0);
 
     bisRunning = true;
 }
 
-void Game::loadLevel(int levelNum) {
+void Game::LoadLevel(int levelNum) {
     // temp
-    Entity& firstEntity(manager.addEntity("leftProjectile"));
+    Entity& firstEntity(manager.AddEntity("leftProjectile"));
     firstEntity.addComponent<TransformComponent>(0, 0, 20, 20, 24, 24, 1);
 
-    Entity& secondEntity(manager.addEntity("rightProjectile"));
+    Entity& secondEntity(manager.AddEntity("rightProjectile"));
     secondEntity.addComponent<TransformComponent>((WINDOW_WIDTH - 24), 0, -20, 20, 24, 24, 1);
 
-    Entity& thirdEntity(manager.addEntity("rightProjectile"));
+    Entity& thirdEntity(manager.AddEntity("rightProjectile"));
     thirdEntity.addComponent<TransformComponent>(0, (WINDOW_HEIGHT - 24), 20, -20, 24, 24, 1);
 
-    Entity& fourthEntity(manager.addEntity("rightProjectile"));
+    Entity& fourthEntity(manager.AddEntity("rightProjectile"));
     fourthEntity.addComponent<TransformComponent>((WINDOW_WIDTH - 24), (WINDOW_HEIGHT - 24), -20, -20, 24, 24, 1);
 
-    manager.listEntities();
+    manager.ListEntities();
 
 }
 
-bool Game::isRunning() const {
+bool Game::IsRunning() const {
     return bisRunning;
 }
 
-void Game::processInput() {
+void Game::ProcessInput() {
     SDL_Event event;
     if(SDL_PollEvent(&event)) {
         switch(event.type) {
@@ -87,7 +87,7 @@ void Game::processInput() {
     }
 }
 
-void Game::update() {
+void Game::Update() {
     //Wait until target frame time has elapsed since last frame, if necessary
     timer->calcAndExecFrameDelay();
 
@@ -96,24 +96,24 @@ void Game::update() {
     timer->clampDeltaTime();
     timer->updateLastFrameTicks();
 
-    manager.update(timer->getDeltaTime());
+    manager.Update(timer->getDeltaTime());
 }
 
-void Game::render() {
+void Game::Render() {
     SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
     SDL_RenderClear(renderer); //clear the current rendering target with the clear color
 
-    if(manager.isEmpty()) {
+    if(manager.IsEmpty()) {
         std::cerr << "Nothing in Entity Manager" << std::endl;
         return;
     }
 
-    manager.render();
+    manager.Render();
 
     SDL_RenderPresent(renderer); // swap buffers
 }
 
-void Game::cleanup() {
+void Game::Cleanup() {
     timer = NULL;
 
     SDL_DestroyRenderer(renderer);

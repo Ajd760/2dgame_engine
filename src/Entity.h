@@ -11,12 +11,12 @@ class Entity {
     public:
         Entity(EntityManager& manager);
         Entity(EntityManager& manager, std::string name);
-        void update(float deltaTime);
-        void render();
-        void destroy();
-        bool getIsActive() const;
-        int getNumComponents() const;
-        Component* getComponentByIndex(int index) const;
+        void Update(float deltaTime);
+        void Render();
+        void Destroy();
+        bool GetIsActive() const;
+        int GetNumComponents() const;
+        Component* GetComponentByIndex(int index) const;
 
         std::string name;
 
