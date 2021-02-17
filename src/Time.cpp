@@ -37,5 +37,5 @@ void Time::CalcAndExecFrameDelay() {
     // If calc'd delay is > 0 and <= than desired frame window, delay frame swap by delayTime
     if(delayTime > 0 && delayTime <= TARGET_FRAME_TIME) {
         SDL_Delay(delayTime);
-    }   
+    }
 }

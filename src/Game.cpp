@@ -45,7 +45,7 @@ void Game::Init(unsigned int winWidth, unsigned int winHeight) {
 }
 
 void Game::LoadLevel(int levelNum) {
-    // temp
+    // temp stuff to see stuff moving on screen
     Entity& firstEntity(manager.AddEntity("leftProjectile"));
     firstEntity.addComponent<TransformComponent>(0, 0, 20, 20, 24, 24, 1);
 
@@ -89,14 +89,14 @@ void Game::ProcessInput() {
 
 void Game::Update() {
     //Wait until target frame time has elapsed since last frame, if necessary
-    timer->calcAndExecFrameDelay();
+    timer->CalcAndExecFrameDelay();
 
     //Timer-update
-    timer->updateDeltaTime();
-    timer->clampDeltaTime();
-    timer->updateLastFrameTicks();
+    timer->UpdateDeltaTime();
+    timer->ClampDeltaTime();
+    timer->UpdateLastFrameTicks();
 
-    manager.Update(timer->getDeltaTime());
+    manager.Update(timer->GetDeltaTime());
 }
 
 void Game::Render() {

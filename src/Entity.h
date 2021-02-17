@@ -25,7 +25,7 @@ class Entity {
             T* newComponent(new T(std::forward<TArgs>(args)...));
             newComponent->owner = this;
             components.emplace_back(newComponent);
-            newComponent->init();
+            newComponent->Init();
             return *newComponent;
         }
 

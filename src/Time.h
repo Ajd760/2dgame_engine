@@ -17,9 +17,5 @@ class Time {
     private:
         int lastFrameTicks;
         float deltaTime;
-
-
 };
-
-
 #endif

@@ -16,8 +16,9 @@ void TransformComponent::Update(float deltaTime) {
     position.y += velocity.y * deltaTime;
 }
 
-// This is temp to show tranform components on screen
+
 void TransformComponent::Render() {
+    // This is temp hardcoded rendering to show tranform components on screen
     SDL_Rect transformRect = {
         (int) position.x,
         (int) position.y,
